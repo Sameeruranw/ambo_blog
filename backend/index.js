@@ -24,8 +24,8 @@ app.use("/api/comments",CommentRoute)
 
 //image upload
 const storage = multer.diskStorage({
-    destination:(req,file,cb)=>{
-        cb(null,"images")
+    destination:(req,file,fn)=>{
+        fn(null,"images")
     },
     filename:(req,file,cb)=>{
         cb(null,req.body.img)

@@ -9,9 +9,9 @@ const verifyToken = require("../VerifyToken")
 //CREATE
 router.post("/create",verifyToken,async (req,res)=>{
     try{
-        const newPost=new Post(req.body)
-        // console.log(req.body)
-        const savedPost=await newPost.save()
+        const newPost = new Post(req.body)
+      //  console.log(newPost)
+        const savedPost = await newPost.save()
         
         res.status(200).json(savedPost)
     }
@@ -62,20 +62,18 @@ router.get("/:id",async (req,res)=>{
 })
 
 //GET POSTS
-router.get("/",async (req,res)=>{
-    const query=req.query
+router.get("/", async (req, res) => {
+    const query = req.query;
     
-    try{
-        const searchFilter={
-            title:{$regex:query.search, $options:"i"}
-        }
-        const posts=await Post.find(query.search?searchFilter:null)
-        res.status(200).json(posts)
+    try {
+        const searchFilter = query.search ? { title: { $regex: query.search, $options: "i" } } : {};
+        const posts = await Post.find(searchFilter);
+        res.status(200).json(posts);
+    } catch (err) {
+        res.status(500).json(err);
     }
-    catch(err){
-        res.status(500).json(err)
-    }
-})
+});
+
 
 //GET USER POSTS
 router.get("/user/:userId",async (req,res)=>{
