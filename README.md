@@ -1,4 +1,3 @@
-You can watch live demo 
 
 
 screenshot !!!
