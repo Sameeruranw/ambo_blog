@@ -48,7 +48,7 @@ const EditPost = () => {
         const filename=Date.now()+file.name
         data.append("img",filename)
         data.append("file",file)
-        post.photo=filename
+        post.photo=filename;
         // console.log(data)
         //img upload
         try{

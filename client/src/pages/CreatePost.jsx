@@ -44,7 +44,7 @@ const CreatePost = () => {
   
       if (file) {
           const data = new FormData();
-          const filename = Date.now() + file.img;
+          const filename = Date.now() + file.name;
           data.append("img", filename);
           data.append("file", file);
           post.photo = filename;
@@ -59,8 +59,8 @@ const CreatePost = () => {
       }
   
       try {
-          const res = await axios.post(URL + "/api/posts/create", post, { withCredentials: true });
-          navigate("/posts/post/" + res.data);
+          const res = await axios.post(URL + "/api/posts/create/", post, { withCredentials: true });
+          navigate("/posts/post/" + res.data._id);
          // console.log(res)
       } catch (err) {
           console.log(err);

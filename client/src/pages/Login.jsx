@@ -30,7 +30,7 @@ const Login = () => {
           <Link to="/">@mbo Blogging Web</Link>
         </h1>
         <h3>
-          <Link to="/Signup">Signup</Link>
+          <Link to="/register">Signup</Link>
         </h3>
       </div>
       <div className=" w-full flex justify-center items-center h-[70vh] ">
@@ -64,7 +64,7 @@ const Login = () => {
             <p> New here ?</p>
             <p className="text-gray-500 hover:text-black">
               {" "}
-              <Link to="/Signup">Signup</Link>
+              <Link to="/register">Signup</Link>
             </p>
           </div>
         </div>
